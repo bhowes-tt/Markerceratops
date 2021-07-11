@@ -56,10 +56,11 @@
                 ></a-asset-item>
             </a-assets>
 
-            <a-marker
+            <a-marker-camera
                 id="animated-marker"
                 type="pattern"
-                url="assets/default-marker.patt"
+                preset="custom"
+                url="assets/aec-marker.patt"
                 raycaster="objects: .clickable"
                 emitevents="true"
                 cursor="fuse: false; rayOrigin: mouse;"
@@ -73,7 +74,7 @@
                     class="clickable"
                     gesture-handler
                 ></a-entity>
-            </a-marker>
+            </a-marker-camera>
 
             <a-entity camera></a-entity>
             <a-entity markerceratops></a-entity>
