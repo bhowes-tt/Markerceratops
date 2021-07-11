@@ -14,6 +14,14 @@
                     //listen for marker found event
                     window.addEventListener('markerFound', () => {
                         console.log("MARKER_FOUND");
+                        
+                        //where is the camera?
+                        var camPosition = document.querySelector('[camera]').getAttribute('position');
+                        console.log("CAM_XYZ", [ camPosition.x, camPosition.y, camPosition.z].toString() );
+
+                        //where is the marker?
+                        var markerPosition = document.querySelector('a-marker').getAttribute('position');
+                        console.log("MARK_XYZ", markerPosition.x);
                     });
 
                     //listen for marker lost event
