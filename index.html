@@ -22,7 +22,7 @@
                         //where is the camera in world space?
                         var worldPos = new THREE.Vector3();
                         document.querySelector('[camera]').object3D.getWorldPosition(worldPos);
-                        console.log("CAM_XYZ", [ camPosition.x, camPosition.y, camPosition.z].toString() );
+                        console.log("CAM_XYZ", [ worldPos.x, worldPos.y, worldPos.z].toString() );
 
                         //where is the marker?
                         var markerPosition = document.querySelector('a-marker').getAttribute('position');
