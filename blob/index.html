@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+    <head>
+        <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+        <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+        <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+        <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-detector.js"></script>
+        <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-handler.js"></script>
+
+        <script>
+            AFRAME.registerComponent('markerceratops', {
+                init: function () {
+
+                    // //listen for marker found event
+                    // window.addEventListener('markerFound', () => {
+                    //     console.log("MARKER_FOUND");
+
+                    //     //where is the camera? -- always 0,0,0
+                    //     //var camPosition = document.querySelector('[camera]').getAttribute('position');
+                    //     //console.log("CAM_XYZ", [ camPosition.x, camPosition.y, camPosition.z].toString() );
+
+                    //     //where is the camera in world space?
+                    //     var worldPos = new THREE.Vector3();
+                    //     document.querySelector('[camera]').object3D.getWorldPosition(worldPos);
+                    //     console.log("CAM_XYZ", [ worldPos.x, worldPos.y, worldPos.z].toString() );
+
+                    //     //where is the marker?
+                    //     var markerPosition = document.querySelector('a-marker').getAttribute('position');
+                    //     console.log("MARK_XYZ", [ markerPosition.x, markerPosition.y, markerPosition.z ].toString());
+                    // });
+
+                    // //listen for marker lost event
+                    // window.addEventListener('markerLost', () => {
+                    //     console.log("MARKER_LOST");
+                    // });
+
+                }
+            });
+        </script>
+    </head>
+
+    <body style="margin: 0; overflow: hidden;">
+        <a-scene
+            vr-mode-ui="enabled: false;"
+            loading-screen="enabled: false;"
+            renderer="logarithmicDepthBuffer: true;"
+            arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false; patternRatio: 0.85;"
+            id="scene"
+            embedded
+            gesture-detector
+        >
+            <a-assets>
+                <a-asset-item
+                    id="blob"
+                    src="assets/mirarBlob.glb"
+                ></a-asset-item>
+            </a-assets>
+
+            <a-marker
+                id="animated-marker"
+                type="pattern"
+                preset="custom"
+                url="assets/aec-marker.patt"
+                raycaster="objects: .clickable"
+                emitevents="true"
+                cursor="fuse: false; rayOrigin: mouse;"
+                id="markerA"
+            >
+                <a-entity
+                    id="bowser-model"
+                    scale="0.027359781692855183 0.027359781692855183 0.027359781692855183"
+                    animation-mixer="loop: repeat"
+                    gltf-model="#blob"
+                    class="clickable"
+                    gesture-handler
+                ></a-entity>
+            </a-marker>
+
+            <a-entity camera></a-entity>
+            <a-entity markerceratops></a-entity>
+        </a-scene>
+    </body>
+</html>
