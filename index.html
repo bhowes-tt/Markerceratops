@@ -11,28 +11,28 @@
             AFRAME.registerComponent('markerceratops', {
                 init: function () {
 
-                    //listen for marker found event
-                    window.addEventListener('markerFound', () => {
-                        console.log("MARKER_FOUND");
+                    // //listen for marker found event
+                    // window.addEventListener('markerFound', () => {
+                    //     console.log("MARKER_FOUND");
 
-                        //where is the camera? -- always 0,0,0
-                        //var camPosition = document.querySelector('[camera]').getAttribute('position');
-                        //console.log("CAM_XYZ", [ camPosition.x, camPosition.y, camPosition.z].toString() );
+                    //     //where is the camera? -- always 0,0,0
+                    //     //var camPosition = document.querySelector('[camera]').getAttribute('position');
+                    //     //console.log("CAM_XYZ", [ camPosition.x, camPosition.y, camPosition.z].toString() );
 
-                        //where is the camera in world space?
-                        var worldPos = new THREE.Vector3();
-                        document.querySelector('[camera]').object3D.getWorldPosition(worldPos);
-                        console.log("CAM_XYZ", [ worldPos.x, worldPos.y, worldPos.z].toString() );
+                    //     //where is the camera in world space?
+                    //     var worldPos = new THREE.Vector3();
+                    //     document.querySelector('[camera]').object3D.getWorldPosition(worldPos);
+                    //     console.log("CAM_XYZ", [ worldPos.x, worldPos.y, worldPos.z].toString() );
 
-                        //where is the marker?
-                        var markerPosition = document.querySelector('a-marker').getAttribute('position');
-                        console.log("MARK_XYZ", [ markerPosition.x, markerPosition.y, markerPosition.z ].toString());
-                    });
+                    //     //where is the marker?
+                    //     var markerPosition = document.querySelector('a-marker').getAttribute('position');
+                    //     console.log("MARK_XYZ", [ markerPosition.x, markerPosition.y, markerPosition.z ].toString());
+                    // });
 
-                    //listen for marker lost event
-                    window.addEventListener('markerLost', () => {
-                        console.log("MARKER_LOST");
-                    });
+                    // //listen for marker lost event
+                    // window.addEventListener('markerLost', () => {
+                    //     console.log("MARKER_LOST");
+                    // });
 
                 }
             });
